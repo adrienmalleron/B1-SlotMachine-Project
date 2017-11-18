@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Machine à sous</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+
+	    <div class="win">
+        	<p class="winText">Try to win!</p>
+    	</div>
+
+    <div class="sign">
+        <div class="sign1">
+            <table id="tabSign0" class="tabSign0">
+		<tr class="celTabSign1 cel Cherry"><td>A</td></tr>
+                <tr class="celTabSign1 cel Bell"><td>B</td></tr>
+                <tr class="celTabSign1 cel Diamond"><td>C</td></tr>
+                <tr class="celTabSign1 cel Redseven"><td>D</td></tr>
+            </table>
+        </div>
+        <div class="sign2">
+            <table id="tabSign1" class="tabSign1">
+                <tr class="celTabSign2 cel Cherry"><td>A</td></tr>
+                <tr class="celTabSign2 cel Bell"><td>B</td></tr>
+                <tr class="celTabSign2 cel Diamond"><td>C</td></tr>
+                <tr class="celTabSign2 cel Redseven"><td>D</td></tr>
+            </table>
+        </div>
+        <div class="sign3">
+            <table id="tabSign2" class="tabSign2">
+                <tr class="celTabSign3 cel Cherry"><td>A</td></tr>
+                <tr class="celTabSign3 cel Bell"><td>B</td></tr>
+                <tr class="celTabSign3 cel Diamond"><td>C</td></tr>
+                <tr class="celTabSign3 cel Redseven"><td>D</td></tr>
+            </table>
+        </div>
+        <div class="sign4">
+            <table id="tabSign3" class="tabSign3">
+                <tr class="celTabSign4 cel Cherry"><td>A</td></tr>
+                <tr class="celTabSign4 cel Bell"><td>B</td></tr>
+                <tr class="celTabSign4 cel Diamond"><td>C</td></tr>
+                <tr class="celTabSign4 cel Redseven"><td>D</td></tr>
+            </table>
+        </div>
+    </div>
+
+    <div id="button" class="button"><p class="jouer">Jouer</p></div>
+    
+    <div class="screen">
+
+	    <div>
+	    	<p class="creditsTitle">TOTAL CREDITS</p>
+		<div class="credits"><p class="creditsText" id="creditsText">20</p></div>
+	    </div>
+	    <div>
+		<p class="betTitle">BET</p>
+		<div class="bet"><p class="betText">1</p></div>
+	    	<button class=".lessBet">-</button>
+	    	<button class=".moreBet">+</button>
+	    </div>
+	    <div>
+		<p class="paidTitle">WINNER PAID</p>
+		<div class="paid"><p class="paidText">5</p></div>
+	    </div>
+
+    </div>
+    <div id="score" class="score"></div>
+<div class="log"></div>
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/jquery.keyframes.min.js"></script>
+<script>
+
+
+var score=20;
+
+//On définit un chiffre random
+function stopRandom(){
+
+	// Calcul de random
+	var randomStop = [];
+
+	for (i=0;i<=3;i++){
+		randomStop[i] = Math.floor((Math.random() * 4) +1);
+	} 
+	
+	console.log(randomStop);
+	return randomStop;
+}
+
+//fonction qui récupère la hauteur du point de stop
+function heightStop(random){
+	//On convertit ce chiffre en hauteur
+	var stoop = [];
+
+	console.log('random', random);
+	for (i=0;i<=3;i++){
+		if (random[i] == 1){
+			stoop[i] = '0vh';
+		}else if (random[i] == 2){
+			stoop[i] = '39.5vh';
+		}else if (random[i] == 3){
+			stoop[i] = '79vh';
+		}else if (random[i] == 4){
+			stoop[i] = '118.5vh';
+		}
+	}
+
+	return stoop;
+}
+
+function addScore(scorePoint){
+	
+	var scoreAdd;
+
+	// A COMMENTER POUR ENLEVER LE WIN AUTOMATIQUE
+	//scorePoint = [0,0,0,0];
+
+	if (scorePoint[0] == scorePoint[1] == scorePoint[2] == scorePoint[3]){
+		scoreAdd = 5;
+        $('div.log').append('vous avez gagner 5 crédits<br>');
+	}else{
+		scoreAdd = 0;
+        $('div.log').append('vous avez perdu 1 crédits<br>');
+	}
+	return scoreAdd;
+}
+
+	
+//fonction pour activer le défilement
+function animation(){
+
+	var random = stopRandom();
+
+	//heightStop(random);
+
+	// Initialisation keyframe js
+	var supportedFlag = $.keyframe.isSupported();
+	$.keyframe.debug = true;
+	
+
+	// Animation
+	var moveStart = [];
+
+	var stopPoint = heightStop(random);
+
+	console.log(stopPoint);
+
+	for (i=0;i<=3;i++){
+		$.keyframe.define([{
+				name: 'moveStart'+i,
+				'0%': {'bottom': '0vh'},
+				'7.69%': {'bottom': '39.5vh'},
+				'15.38%': {'bottom': '79vh'},
+				'23.07%': {'bottom': '118.5vh'},
+				'30.76%': {'bottom': '79vh'},
+				'38.45%': {'bottom': '39.5vh'},	
+				'46.4%': {'bottom': '0vh'},
+				'53.8%': {'bottom': '39.5vh'},
+				'61.48%': {'bottom': '79vh'},
+				'69.17%': {'bottom': '118.5vh'},
+				'76.86%': {'bottom': '79vh'},
+				'84.55%': {'bottom': '39.5vh'},
+				'92.24%': {'bottom': '0vh'},
+				'100%': {'bottom': stopPoint[i]}
+			}]);
+	
+	var target = "#tabSign"+i;
+
+	console.log(target);
+	var sec = (2*i)+2-i;
+	$(target).css({"animation":"moveStart"+i+" "+sec+"000ms"});	
+	$(target).css({"bottom": stopPoint[i]});
+
+
+	}
+	var scorePoint = addScore(stopPoint);
+	console.log('scorePoint',scorePoint)
+	return scorePoint;
+
+}
+
+function table() {
+            $('table').attr('style', '');
+            $('table').css('bottom', 0);
+        }
+
+
+$("#button").click(function() {
+
+
+	table();
+	setTimeout(_ => {
+
+
+	console.log('buttonclick',score);
+	if (score > 0) {
+       
+        score += animation();
+
+        localStorage.setItem("score", score);
+
+        (localStorage.getItem("score"));
+        score = parseInt(localStorage.getItem("score"));
+      	score --; 
+
+        document.getElementById("creditsText").innerHTML =  score + "<br />" ;
+
+    }
+
+	},200);
+
+});
+
+</script>
+</body>
+</html>

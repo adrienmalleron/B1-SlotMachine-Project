@@ -1,0 +1,21 @@
+<script>
+
+	var credit = 20;
+
+	//récupération du lancement de la partie
+
+	if(partie === 1) {
+		credit --;
+		console.log(credit);
+	}
+
+	//récupération du score de la partie
+
+	if(resultatPartie === 1){
+		credit += 5;
+		console.log("Victoire");
+	} else {
+		console.log("Défaite");
+	}
+
+</script>

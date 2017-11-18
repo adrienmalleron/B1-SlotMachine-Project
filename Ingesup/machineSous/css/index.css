@@ -1,0 +1,229 @@
+html,body{
+    margin: 0;
+    padding: 0;
+    background: url(../img/back.jpg) no-repeat center;
+    background-size: 100% 120%;
+}
+
+body{
+	margin-top:5vh;
+}
+
+.topRight{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.inscription{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.highScore{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.win{
+	width: 40vw;
+	height: 10vh;
+	background: black;
+	border: solid 4px white;
+	border-radius: 50px;
+	color: red;
+	font-size: 8vh;
+	margin: auto;
+}
+
+.winText{
+	margin: auto;
+	position: relative;
+	left: 11vw;
+	top: 0.6vh;
+}
+
+.sign{
+    width: 63vw;
+    height: 41vh;
+    margin: auto;
+    margin-top: 2vh;
+    display: flex;
+    overflow : hidden;
+    flex-direction: row;
+}
+
+.sign1, .sign2, .sign3, .sign4{
+    height: 40vh;
+    width: 15vw;
+    border: solid 5px darkgrey;
+    border-radius: 10px;
+}
+
+.tabSign0, .tabSign1, .tabSign2, .tabSign3{
+    position: relative;
+    width: 15vw;
+}
+
+
+tr{
+    height: 39.5vh;
+    width: 15vw;
+}
+
+.Cherry{
+	background: url(../img/icon/cherry.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	background-color: white;
+}
+
+.Bell{
+	background: url(../img/icon/bell.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	background-color: white;
+}
+
+.Diamond{
+	background: url(../img/icon/diamond.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	background-color: white;
+}
+
+.Redseven{
+	background: url(../img/icon/redseven.png);
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	color: white;
+	background-color: white;
+}
+
+.button{
+	height: 100px;
+	width: 100px;
+	border-radius: 50px;
+	background: red;
+	display: flex;
+	position: relative;
+	bottom: 20vh;
+	left: 10vw;
+}
+
+.jouer{
+	margin: auto;
+	color: white;
+}
+
+.screen{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.credits{
+	width: 30vw;
+	height: 6vh;
+	background: black;
+	border: solid 4px white;
+	border-radius: 50px;
+	color: red;
+	font-size: 4vh;
+	position: relative;
+	right: 2vw;
+	bottom: 5vh;	
+}
+
+.creditsText{
+	position: relative;
+	bottom: 3.5vh;
+	left:52vh;
+}
+
+.creditsTitle{
+	position: relative;
+	bottom: 4vh;
+	font-size: 4vh;
+	left: 4.3vw;
+	color: white;
+}
+
+.bet{
+	width: 10vw;
+	height: 6vh;
+	background: black;
+	border: solid 4px white;
+	border-radius: 50px;
+	color: red;
+	font-size: 4vh;
+	position: relative;
+	bottom: 5vh;
+	right: 4vw;
+	
+}
+
+.betText{
+	position: relative;
+	bottom: 3.2vh;
+	left: 7vw;
+}
+
+.betTitle{
+	position: relative;
+	font-size: 4vh;
+	bottom: 3vh;
+	right: 1vw;
+	color: white;
+}
+
+.paid{
+	width: 12vw;
+	height: 6vh;
+	background: black;
+	border: solid 4px white;
+	border-radius: 50px;
+	color: red;
+	font-size: 4vh;
+	position: relative;
+	bottom: 5vh;
+}
+
+.paidText{
+	position: relative;
+	bottom: 3.2vh;
+	left: 9vw;
+}
+
+.paidTitle{
+	position: relative;
+	font-size: 4vh;
+	bottom: 3vh;
+	right: 1.7vw;
+	color: white
+}
+
+.score{
+	position: relative;
+	bottom: 3.5vh;
+	left:52vh;
+}
+.log{
+	background: black;
+	border: solid 4px white;
+	position: relative;
+	color: red;
+	width: 10vw;
+	height: 40vh;
+	bottom: 73.5vh;
+	left: 85vw;
+	font-size: 1.5vh;
+
+}
