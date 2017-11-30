@@ -1,3 +1,0 @@
-# Ingesup
-
-School Project.

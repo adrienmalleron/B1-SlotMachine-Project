@@ -1,4 +1,3 @@
-# JS
-My Learning of JS
+# Machine à Sous
 
-All project are made by myself for universitary projects or just for personal education
+Little B1's project, my first one one with JS.
